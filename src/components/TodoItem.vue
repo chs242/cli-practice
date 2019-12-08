@@ -3,7 +3,7 @@
         <p>
             <input type="checkbox" @change="markComplete">
             {{todo.title}}
-            <botton @click="$emit('del-todo', todo.id)" class="del">X</botton>
+            <button @click="$emit('del-todo', todo.id)" class="del">X</button>
         </p>
     </div>
 </template>
