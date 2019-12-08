@@ -1,25 +1,24 @@
 <template>
   <div id="app">
     <Header />
-    <Todos :todos="todos" v-on:del-todo="deleteTodo"/>
-    <AddTodo v-on:add-todo="addTodo"/>
+    <h3 v-if="todos.length === 0">Add somthing to your Todo-LIst...</h3>
+    <Todos :todos="todos" v-on:del-todo="deleteTodo" />
+    <p class="percentag-done">{{ percentageDone }}% done...</p>
   </div>
 </template>
 
 <script>
 import Todos from "./components/Todos";
 import Header from "./components/layout/Header";
-import AddTodo from "./components/AddTodo";
 
 export default {
   name: "app",
   components: {
-   Header,
-   Todos,
-   AddTodo
+    Header,
+    Todos
   },
-  data (){
-    return{
+  data() {
+    return {
       todos: [
         {
           id: 1,
@@ -34,30 +33,35 @@ export default {
         {
           id: 3,
           title: "todo three",
-          completed: false 
+          completed: false
         }
       ]
+    };
+  },
+  methods: {
+    deleteTodo(id) {
+      this.todos = this.todos.filter(todo => todo.id !== id);
     }
   },
-  methods:{
-    deleteTodo(id){
-      this.todos = this.todos.filter(todo => todo.id !== id);
-    },
-    addTodo(newTodo){
-      this.todos = [...this.todos, newTodo]
+  computed: {
+    percentageDone() {
+      return Math.round(
+        (100 / this.todos.length) *
+          this.todos.filter(todo => todo.completed).length
+      );
     }
   }
 };
 </script>
 
 <style>
-*{
+* {
   box-shadow: border-box;
   margin: 0;
   padding: 0;
 }
 
-body{
-  font-family: Arial, Helvetica, sans-serif;
+body {
+  font-family: Arial Helvetica sans-serif;
 }
 </style>
