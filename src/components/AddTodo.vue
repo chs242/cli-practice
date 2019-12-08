@@ -1,13 +1,30 @@
 <template>
     <div class="input-form">
-        <input type="text" name="title" placeholder="add todo...">
-        <input type="submit" value="submit" class="button">
+        <input type="text" v-model="title" @keyup.enter="addTodo" placeholder="add todo...">
+        <input type="submit" value="submit" class="button" @click="addTodo">
     </div>
 </template>
+
 <script>
 export default {
-    name: 'AddTodo'
+    name: 'AddTodo',
+    data () {
+        return{
+            title: '',
+        }
+    },
+    methods: {
+        addTodo(){
+            const newTodo = {
+                title: this.title,
+                completed: false
+            }
+            this.$emit('add-todo', newTodo);
+            this.title = '';
+        }
+    }
 }
+
 </script>
 
 <style scoped>
