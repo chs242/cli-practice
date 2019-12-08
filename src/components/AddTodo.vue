@@ -17,4 +17,7 @@ export default {
         text-align: center;
         padding: 10px;
     }
+    .button{
+        margin-left: 10px
+    }
 </style>
