@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <Header />
-    <Todos :todos="todos" v-on:del-todo="deleteTodo"/>
-    <AddTodo v-on:add-todo="addTodo"/>
+    <Todos :todos="todos" v-on:del-todo="deleteTodo" />
+    <AddTodo v-on:add-todo="addTodo" />
     <Percentage />
   </div>
 </template>
@@ -11,18 +11,18 @@
 import Todos from "./components/Todos";
 import Header from "./components/layout/Header";
 import AddTodo from "./components/AddTodo";
-import Percentage from "./components/Percentage"
+import Percentage from "./components/Percentage";
 
 export default {
   name: "app",
   components: {
-   Header,
-   Todos,
-   AddTodo,
-   Percentage
+    Header,
+    Todos,
+    AddTodo,
+    Percentage
   },
-  data (){
-    return{
+  data() {
+    return {
       todos: [
         {
           id: 1,
@@ -37,33 +37,31 @@ export default {
         {
           id: 3,
           title: "mow the lawn",
-          completed: false 
+          completed: false
         }
       ],
-      percentage: '',
-    }
-    
+      percentage: ""
+    };
   },
-  methods:{
-    deleteTodo(id){
+  methods: {
+    deleteTodo(id) {
       this.todos = this.todos.filter(todo => todo.id !== id);
     },
-    addTodo(newTodo){
-      this.todos = [...this.todos, newTodo]
-    },
-    
+    addTodo(newTodo) {
+      this.todos = [...this.todos, newTodo];
+    }
   }
 };
 </script>
 
 <style>
-*{
+* {
   box-shadow: border-box;
   margin: 0;
   padding: 0;
 }
 
-body{
+body {
   font-family: Arial, Helvetica, sans-serif;
 }
 </style>
