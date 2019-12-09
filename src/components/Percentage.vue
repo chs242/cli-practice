@@ -1,16 +1,27 @@
 <template>
   <div class="percentage">
-    <h4>{{ test }} % complete</h4>
+    <h4>{{ percentage }} % complete</h4>
   </div>
 </template>
 
 <script>
 export default {
   name: "Percentage",
+  props: {
+    todos: Object
+  },
   data() {
     return {
       test: 0
     };
+  },
+  computed: {
+    percentage() {
+      return Math.round(
+        (100 / this.todos.length) *
+          this.todos.filter(todo => todo.completed).length
+      );
+    }
   }
 };
 </script>

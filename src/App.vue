@@ -3,7 +3,7 @@
     <Header />
     <Todos :todos="todos" v-on:del-todo="deleteTodo" />
     <AddTodo v-on:add-todo="addTodo" />
-    <Percentage />
+    <Percentage :todos="todos" />
   </div>
 </template>
 
