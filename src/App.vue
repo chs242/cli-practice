@@ -3,6 +3,7 @@
     <Header />
     <Todos :todos="todos" v-on:del-todo="deleteTodo"/>
     <AddTodo v-on:add-todo="addTodo"/>
+    <Percentage />
   </div>
 </template>
 
@@ -10,34 +11,38 @@
 import Todos from "./components/Todos";
 import Header from "./components/layout/Header";
 import AddTodo from "./components/AddTodo";
+import Percentage from "./components/Percentage"
 
 export default {
   name: "app",
   components: {
    Header,
    Todos,
-   AddTodo
+   AddTodo,
+   Percentage
   },
   data (){
     return{
       todos: [
         {
           id: 1,
-          title: "todo one",
+          title: "take out the garbage",
           completed: false
         },
         {
           id: 2,
-          title: "todo two",
+          title: "clean the floor",
           completed: false
         },
         {
           id: 3,
-          title: "todo three",
+          title: "mow the lawn",
           completed: false 
         }
-      ]
+      ],
+      percentage: '',
     }
+    
   },
   methods:{
     deleteTodo(id){
@@ -45,7 +50,8 @@ export default {
     },
     addTodo(newTodo){
       this.todos = [...this.todos, newTodo]
-    }
+    },
+    
   }
 };
 </script>
