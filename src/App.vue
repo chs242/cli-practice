@@ -4,7 +4,6 @@
     <Todos :todos="todos" v-on:del-todo="deleteTodo" />
     <AddTodo v-on:add-todo="addTodo" />
     <Percentage :todos="todos" />
-    <p>Hello Netlify</p>
   </div>
 </template>
 
