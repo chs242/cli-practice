@@ -24,11 +24,11 @@ export default {
 .todo-item {
   background: #f4f4f4;
   padding: 10px;
-  border: 1px #ccc dotted;
+  width: 50%;
 }
 
 .is-complete {
-  text-decoration: line-through;
+  visibility: hidden;
 }
 
 .del {

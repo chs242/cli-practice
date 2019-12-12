@@ -25,6 +25,5 @@ export default {
   .todos-container{
     display: flex;
     justify-content: space-between;
-    border: 2px solid green;
   }
 </style>

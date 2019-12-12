@@ -1,7 +1,6 @@
 <template>
     <div class="todo-item" :class="{ 'is-complete': todo.completed }">
     <p>
-      <input type="checkbox" @change="markComplete" />
       {{ todo.title }}
       <button @click="$emit('del-todo', todo.id)" class="del">X</button>
     </p>
@@ -24,11 +23,14 @@ export default {
     .todo-item {
     background: #f4f4f4;
     padding: 10px;
-    border: 1px #ccc dotted;
+    border: 1px solid green;
+    width: 50%;
+    visibility: hidden;
     }
 
     .is-complete {
     text-decoration: line-through;
+    visibility: visible;
     }
 
     .del {
